@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --exit",
     "start": "nodemon server.js",
-    "eslint": "./node_modules/eslint/bin/eslint.js ./public/js/*.js"
+    "eslint": "./node_modules/eslint/bin/eslint.js ./public/js/*.js --fix"
   },
   "repository": {
     "type": "git",
