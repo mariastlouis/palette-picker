@@ -15,7 +15,12 @@ const requireHTTPS = (request, response, next) => {
   next();
 };
 
-app.use(requireHTTPS);
+
+if (environment === 'production') {
+  app.use(requireHTTPS);
+} 
+
+
 
 
 app.use(bodyParser.json());

@@ -1,0 +1,30 @@
+{
+  "short_name": "palettePicker",
+  "name": "Maria Sanchez Palette Picker",
+  "background_color": "#dcaffd",
+  "theme_color": "#74c7fd",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "images/paletteIcon.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "images/paletteIcon.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "images/paletteIcon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "images/paletteIcon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html?launcher=true"
+}

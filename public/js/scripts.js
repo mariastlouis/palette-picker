@@ -240,8 +240,18 @@ const postPalette = async (projectId, palette) => {
   $('.project-container').html('')
   getProjects();
   displaySelectProject(projectId)
+  paletteNotification(palette)
 
 }
+
+
+  const paletteNotification = (palette) => {
+  navigator.serviceWorker.controller.postMessage({ 
+    type: 'add-palette',
+    paletteName: palette.title
+  });
+}
+
 
 $('.selected-project').on('click', '.delete-btn', async function() {
   const paletteId = parseInt($(this).parent().parent().attr('id'))
@@ -263,4 +273,30 @@ $('.save-palette-btn').on('click', grabPalette)
 $('.save-project-btn').on('click', postProject)
 $('.generate-btn').on('click', setColors)
 $('.unlock-icon').on('click', toggleFavorite)
+
+// if('serviceWorker in navigator') {
+//   window.addEventListener('load', () => {
+//     navigator.serviceWorker.register('../service-worker.js')
+//     .then(registration => navigator.serviceWorker.ready)
+//     .then(registration => {
+//       Notification.requestPermission();
+
+//     }
+//   })
+// }
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+        
+    navigator.serviceWorker.register('../service-worker.js')
+      .then(registration => navigator.serviceWorker.ready)
+      .then(registration => {
+        Notification.requestPermission();
+        console.log('ServiceWorker registration successful');
+      }).catch(err => {
+        console.log(`ServiceWorker registration failed: ${err}`);
+      });
+
+  });
+}
 
